@@ -1,3 +1,8 @@
-.picture {
-    height: 10vh;
+.hand {
+    padding: 10px;
+    border: 1px solid grey;
+}
+
+.card {
+    margin: 3px;
 }

@@ -1,5 +1,6 @@
-<h1>Workshop 31 Exercise: Two Deck of Cards</h1>
+<h1>Workshop 31 Exercise:</h1>
+<h2>Deck of Player Cards</h2>
 
-<app-hand></app-hand>
-
-<app-hand></app-hand>
+<app-hand *ngFor="let p of players" [hand]="p"
+    (onRemoveCard)="removeCard($event)">
+</app-hand>

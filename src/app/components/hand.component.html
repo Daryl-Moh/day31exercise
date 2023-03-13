@@ -1,27 +1,13 @@
 
-<div *ngFor="let i of suites">
-    <div *ngIf=i=="Clover">
-        <div *ngFor="let n of values">
-            <img src="/assets/{{i}}/card_{{n}}_clover.png" class="picture">
-        </div>
+<div class="hand">
+
+    <h3>{{ hand.name | titlecase }}</h3>
+
+    <div>
+        <span *ngFor="let c of hand.cards; let i = index">
+            <img src="/assets/cards/card_{{ c.card }}_{{ c.suit }}.png"
+                (click)="removeCard(i)" class = "card">
+
+        </span>
     </div>
-    <div *ngIf=i=="Diamond">
-        <div *ngFor="let n of values">
-            <img src="/assets/{{i}}/card_{{n}}_diamond.png" class="picture">
-        </div>
-    </div>
-    <div *ngIf=i=="Heart">
-        <div *ngFor="let n of values">
-            <img src="/assets/{{i}}/card_{{n}}_heart.png" class="picture">
-        </div>
-    </div>
-    <div *ngIf=i=="Spade">
-        <div *ngFor="let n of values">
-            <img src="/assets/{{i}}/card_{{n}}_spade.png" class="picture">
-        </div>
-    </div>
-</div>
-<br>
-<div>
-    <button type="button" (click)="removeCard()">Drop</button>
 </div>

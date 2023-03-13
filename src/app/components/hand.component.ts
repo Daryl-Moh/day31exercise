@@ -1,4 +1,6 @@
 import { Component, Input, Output } from '@angular/core';
+import { Subject } from 'rxjs';
+import { Hand, RemoveCard } from '../models';
 
 @Component({
   selector: 'app-hand',
@@ -8,29 +10,17 @@ import { Component, Input, Output } from '@angular/core';
 export class HandComponent {
 
   @Input()
-  cardNum=0
-  values: String[] = [
-    '1', '2', '3', '4', '5', 
-    '6', '7', '8', '9', '10',
-    'J', 'Q', 'K'
-  ]
+  hand!: Hand
 
-  suites: String[] = [
-    'Clover', 
-    'Diamond', 
-    'Heart', 
-    'Spade'
-  ]
+  @Output()
+  onRemoveCard = new Subject<RemoveCard>()
 
-  removeCard() {
-    this.cardNum = 0
-    console.info('Card Dropped Button Pressed')
+  removeCard(idx: number) {
+    console.info(`>>> card: ${idx}`)
+    this.onRemoveCard.next({
+      name: this.hand.name,
+      cardNum: idx
+    })
   }
-
-  getRandomInt(min: number, max: number) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min) + min);
-  }
-
+  
 }
