@@ -17,7 +17,7 @@ export class AppComponent implements OnInit{
   ngOnInit(): void {
     this.deck = new Deck()
     this.deck.shuffle()
-    console.info(this.deck.dump())
+    console.info('Deck contents after OnInit >>> ', this.deck.dump())
 
     for (let n of PLAYERS) {
       this.players.push({
@@ -26,7 +26,7 @@ export class AppComponent implements OnInit{
       })
     }
 
-    console.info(this.players)
+    console.info('Players list >>> ', this.players)
   }
 
   removeCard(event: RemoveCard) {

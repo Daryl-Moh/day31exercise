@@ -14,6 +14,11 @@ export interface Hand {
     cards: Card[]
 }
 
+export interface Discard {
+    suit: string
+    card: number
+}
+
 export const SUIT = ["clover", "spade", "diamond", "heart"]
 export const VALUE = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 
